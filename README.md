@@ -27,7 +27,7 @@ I'm starting backend in details from the very start and here you can see the str
 
 ---
 
-## ✅ Day 2 - Express.js Basics
+## ✅ Day 2 Part 1 - Express.js Basics
 
 ### What I Did
 
@@ -48,8 +48,46 @@ I'm starting backend in details from the very start and here you can see the str
 - GET Requests
 - Request & Response
 - Nodemon
-
 ---
+
+## ✅ Day 2 - Part 2: API & Middleware
+
+### What I Did
+
+- Learned what an **API** is and how it enables communication between applications.
+- Understood the concept of a **REST API** and its principles.
+- Learned about common HTTP methods:
+  - GET
+  - POST
+  - PUT
+  - PATCH
+  - DELETE
+- Built a simple REST API using **GET** and **POST** requests.
+- Tested API endpoints using **Postman**.
+- Learned how to send data in the **Body** of a request using the **JSON** format.
+- Discovered why `req.body` returns `undefined` by default.
+- Added the Express middleware `app.use(express.json())` to parse incoming JSON data.
+- Successfully received and processed JSON data from Postman after adding the middleware.
+
+### Skills Learned
+
+- API Fundamentals
+- Rest API
+- HTTP Methods
+- GET Request
+- POST Request
+- Postman
+- Request Body
+- JSON
+- Express Middleware
+- `express.json()`
+- `req.body`
+
+----
+
+## ✅ Day 2 - Part 3 : Small task creating a notes Application
+
+
 
 ## 🎯 Goal
 
