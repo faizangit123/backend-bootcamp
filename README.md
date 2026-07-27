@@ -85,9 +85,44 @@ I'm starting backend in details from the very start and here you can see the str
 
 ----
 
-## ✅ Day 2 - Part 3 : Small task creating a notes Application
+## ✅ Day 2 - Part 3 : Small task creating a notes Application :-> Building a Simple CRUD API
+###  What I Learned
 
+Today I combined the concepts I learned earlier and built a simple CRUD API using Express.js.
 
+###  What I Built
+
+- Created a dedicated `src` folder to organize the project.
+- Separated the application logic and server startup into different files.
+- Configured the Express server.
+- Used `express.json()` middleware to handle incoming JSON data.
+- Created an in-memory `posts` array to store data.
+- Implemented API routes for:
+  - **POST** – Create a new post.
+  - **GET** – View all posts.
+  - **PATCH** – Update the description of a specific post.
+  - **DELETE** – Remove a post using route parameters.
+- Learned the difference between:
+  - `req.body` (receiving request data)
+  - `req.params` (receiving values from the URL)
+
+### 💡 Key Takeaways : That i get to know
+
+- **Folder structure does matters.** As projects grow, organizing files into folders makes the code easier to understand, maintain, and scale.
+- Writing code once isn't enough to truly understand it. Before moving on to a new topic, I rewrite everything I've learned from scratch without looking at previous code. This helps me identify gaps in my understanding and reinforces the concepts.
+- I realized that using JavaScript's `delete` operator on an array doesn't completely remove the element. Instead, it leaves an empty slot (`undefined`) while keeping the array length the same. This helped me better understand how arrays work internally.
+
+### 🚀 Skills Learned
+
+- Project Structure
+- Express Configuration
+- CRUD Operations
+- GET Requests
+- POST Requests
+- PATCH Requests
+- DELETE Requests
+- Route Parameters
+- `req.params`
 
 ## 🎯 Goal
 
