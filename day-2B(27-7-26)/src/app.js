@@ -35,7 +35,7 @@ app.delete('/posts/:index', (req, res) => {
 // modify -> req.body -> {description}
 app.patch('/posts/:index', (req, res)=>{
   posts[req.params.index].description = req.body.description;
-  res.send("Post is updated successfully")
+  res.send("Desc is updated successfully")
 })
 
 module.exports = app;

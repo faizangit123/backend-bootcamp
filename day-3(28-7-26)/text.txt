@@ -1,0 +1,9 @@
+day 3 28-7-26, i am just think out loud, 
+curd with status codes and database mongodb,
+again creating crud from start but with status codes
+
+204 does not show the data in postman and learn 200
+
+and one problem every time server restart notes gone its show empty array and the solution i come to know is database and is a variable which store its value in ram, like when server start os the server a random area in ram and all the variable in the server will store in that area in ram , but when server is restart it now ram will give it some other random area to the server now this area have different variable data and the default state is empty array so that why we see empty array when server is restart 
+
+now database they are basically 2 type reational and non reational that is mongodb and im starting with mongodb atless , i did use it one time and the expamle of database let say spotify , when normal use only can listin and like download but not add music only artist who can create song and publish it what i want to say is simple use can only see and read but some can change and modify the database and i install mongodb compase msi
