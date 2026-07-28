@@ -124,6 +124,112 @@ Today I combined the concepts I learned earlier and built a simple CRUD API usin
 - Route Parameters
 - `req.params`
 
+---
+## ✅ Day 3 - CRUD API, HTTP Status Codes & MongoDB Basics
+
+###  What I Did
+
+Today I rebuilt my Notes CRUD API from scratch again, but this time I focused on writing cleaner APIs and understanding how data is actually stored.
+
+###  What I Built
+
+- Recreated the complete CRUD API from scratch.
+- Added proper HTTP Status Codes to API responses.
+- Tested all endpoints using Postman.
+- Improved the project structure while building the API.
+
+###  What I Learned
+
+#### HTTP Status Codes
+
+I learned how different status codes are used to describe the result of an API request.
+
+- **200 OK** – The request was successful.
+- **201 Created** – A new resource was created successfully.
+- **204 No Content** – The request was successful, but no response body is returned.
+
+One interesting thing I noticed was that **204 No Content** doesn't display any data in Postman because the server intentionally sends back an empty response.
+
+---
+
+#### Why My Notes Disappeared
+
+While testing my Notes API, I noticed that every time I restarted the server, all my notes were gone.
+
+At first, I thought something was wrong with my CRUD operations.
+
+Then I realized that the `posts` array was only stored in the application's memory (RAM). When the Node.js server stops, everything stored in memory is cleared. When the server starts again, it creates a new empty array.
+
+This helped me understand why backend applications need a database.
+
+---
+
+#### Introduction to Databases
+
+I learned that databases allow applications to store data permanently, so it remains available even after the server restarts.
+
+I also learned about the two main types of databases:
+
+- **Relational Databases (SQL)**
+- **Non-Relational Databases (NoSQL)**
+
+For my backend journey, I'm starting with **MongoDB**.
+
+---
+
+#### Understanding with a Real-World Example
+
+A simple example that helped me understand databases was **Spotify**.
+
+As a normal user, I can:
+
+- Listen to songs.
+- Like music.
+- Create playlists.
+
+But I cannot upload songs or modify Spotify's database.
+
+Only artists and authorized systems can create or update that data.
+
+This helped me understand that applications control who can read, create, update, and delete data from the database.
+
+---
+
+### 💻 Tools Used
+
+- Node.js
+- Express.js
+- Postman
+- MongoDB Atlas
+- MongoDB Compass
+
+---
+
+### 💡 My Biggest Takeaway
+
+One habit I've started following is rewriting all the previous day's code from scratch before learning something new.
+
+Instead of copying old code, I rebuild everything on my own. Sometimes I forget things or make mistakes, but that's exactly what helps me understand the concepts more deeply.
+
+Every bug and every mistake teaches me something new.
+
+---
+
+### 🚀 Skills Learned
+
+- CRUD API
+- HTTP Status Codes
+- REST API
+- API Testing
+- Postman
+- Data Persistence
+- RAM vs Database
+- MongoDB Basics
+- MongoDB Atlas
+- MongoDB Compass
+
+---
+
 ## 🎯 Goal
 
 Document my backend learning journey step by step while building a strong foundation in Node.js, Express.js, MongoDB, REST APIs, Authentication, and Deployment.
