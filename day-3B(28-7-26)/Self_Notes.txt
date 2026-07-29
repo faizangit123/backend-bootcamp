@@ -1,0 +1,6 @@
+About uri in mongoose.connect('uri') :
+ uri -> is cluster connection but we want to connect it to database which leave inside cluser so we use /day-3 , if db with this is not there then it will create it automatiacally
+
+ and cluser can have many databases
+
+ and we also use .then because we dont know when we get the response from the server its depend on own internet connection speed .then and .catch

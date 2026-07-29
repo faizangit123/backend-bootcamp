@@ -1,0 +1,19 @@
+In model : // we have a collection called notes, where all are notes are gonna be in
+
+and the file name is apiname.model.js
+
+// when server give response then it will create so we need to add await before noteModel
+
+//db has a simple rule all you need to tell them what kind of data are you going to store, like in which format you would like to store you data than this process is called schema (how its look, property and its type)
+
+// mongoose package create the unique id for every notes collection, as it contain all the notes
+
+// if we are writing an extra property on backend logic but not writing it in schema then db will ignore it
+
+// create a model and save it in noteModel, notemodel is asking for a string, and notes api 
+
+// one more thing that we dont share our variable name MONGO_URI= uri on github, so we make .evn file and install another package called npm i dotenv
+
+// one thing that i find when with .get methods to perform curd operations that .find always writen data in array format 
+
+// i also start making notes for better understanding
