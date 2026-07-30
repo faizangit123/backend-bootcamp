@@ -1,9 +1,10 @@
 // its work is to create the server
 const express = require('express');
 const noteModel = require('./model/note.model'); // to perform curd operation
+const cors = require('cors');
 const app = express();
-app.use(express.json())
-
+app.use(express.json());
+app.use(cors());
 app.set('json spaces', 2);
 /**
  * - POST /api/notes
