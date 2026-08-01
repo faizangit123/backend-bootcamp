@@ -1,0 +1,1 @@
+we are going run "npm run build" in our frontend , because we convert all our code , react into just 3 file index.html , js and css , then we copy those file and past them on backend and before we past them we need to create a folder in backend called public and then past those 3 there 

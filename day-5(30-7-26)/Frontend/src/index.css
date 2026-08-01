@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #181818;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 30px;
+}
+
+.note-create-form {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.note-create-form input {
+  width: 260px;
+  padding: 14px 16px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: 16px;
+}
+
+.note-create-form button {
+  padding: 14px 24px;
+  border: none;
+  border-radius: 10px;
+  background: #7c3aed;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.note-create-form button:hover {
+  background: #6d28d9;
+}
+
+.notes {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #2d2d2d;
+  border-radius: 12px;
+  padding: 20px;
+  min-height: 150px;
+  transition: 0.25s;
+  text-align: center;
+}
+.note button {
+  padding: 14px 24px;
+  border: none;
+  border-radius: 10px;
+  background: #7c3aed;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.note:hover {
+  transform: translateY(-4px);
+  background: #383838;
+}
+
+.note h1 {
+  font-size: 30px;
+  margin-bottom: 12px;
+  word-break: break-word;
+}
+
+.note p {
+  text-align: center;
+  color: #cfcfcf;
+  font-size: 17px;
+  line-height: 1.5;
+  word-break: break-word;
+}
