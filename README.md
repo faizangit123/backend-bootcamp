@@ -277,6 +277,82 @@ Watching all these pieces connect together is making backend development much ea
 - State Management
 - Backend & Frontend Communication
 
+## ✅ Day 5 - Building a Full-Stack Notes Application
+
+### What I have Learned:
+Today I combined React, Express, and MongoDB to build my first complete CRUD Notes application.
+
+### What I Make this time:
+- Created REST APIs for Notes.
+- Connected a React frontend to an Express backend using Axios.
+- Stored notes in MongoDB.
+- Implemented CRUD operations:
+  - Create
+  - Read
+  - Update
+  - Delete
+- Updated the UI automatically after creating or deleting notes.
+- Organized the backend into separate folders for better project structure.
+- Used Express middleware for JSON parsing, CORS, and serving static files.
+- Served the React production build from the Express backend.
+
+### My own Key Takeaways:
+- A good folder structure makes projects easier to understand, maintain, and scale.
+- React applications can be converted into static assets using `npm run build`.
+- Those build files can be served directly by Express through the `public` folder, allowing the frontend and backend to be deployed together.
+- APIs act as the bridge between the frontend and backend.
+- Route parameters (`req.params`) are useful for updating or deleting specific resources.
+
+### How was my Learning Approach:
+One habit I've developed is rewriting everything from scratch before moving on to a new topic.
+Instead of copying previous code, I rebuild everything I've learned so far using different data and examples. If I get stuck, I go back, understand the concept more deeply, and try again.
+This approach takes longer, but it helps me truly understand how everything works rather than just memorizing the syntax.
+
+### 🚀 Skills Learned
+- Express.js
+- React
+- MongoDB
+- Mongoose
+- CRUD Operations
+- REST APIs
+- Axios
+- Express Middleware
+- Static File Serving
+- Project Structure
+- Route Parameters
+
+---
+
+## ✅ Day 6 - Understanding Authentication Fundamentals
+
+### What I have Learned:
+Today I learned the core concepts behind Authentication and how servers identify users securely.
+
+### What I Make this time:
+- Learned how `express.static("./public")` makes all files inside the `public` folder publicly accessible.
+- Understood the four main pillars of an Authentication System:
+  - Authentication
+  - Authorization
+  - Validation
+  - Verification
+- Learned how a user registers by sending data through `req.body`.
+- Understood that the server stores user data in the database and generates a token.
+- Learned that every future request should include that token so the server can identify the user.
+- Understood why JWT uses a secret key (`JWT_SECRET`) to securely sign tokens.
+
+### My own Key Takeaways:
+- Authentication identifies **who** is sending the request.
+- Authorization decides **what** a user is allowed to access.
+- Validation checks whether the input format is correct.
+- Verification confirms that the provided information belongs to the correct user.
+- A token works like a digital ID card that helps the server recognize users.
+- `JWT_SECRET` is stored only on the server and prevents forged or modified tokens.
+
+### How was my Learning Approach:
+Instead of memorizing definitions, I tried understanding each concept through real-world examples like Instagram, Spotify, and a college permission system. Relating technical concepts to everyday situations made them much easier to understand.
+
+---
+
 ## 🎯 Goal
 
 Document my backend learning journey step by step while building a strong foundation in Node.js, Express.js, MongoDB, REST APIs, Authentication, and Deployment.

@@ -1,0 +1,34 @@
+Day-6(31-7-26) : we use express.static('./public'or any other), means every thing inside this folder will become publically acessale for allthe users.
+
+and Now let start Authentication System : 
+in any auth : there are mainly 4 pillers
+
+1) Authentication: can identify which user send the request
+2) Authorization : What a user can do
+3) Validation : 
+4) verification
+
+let say we have a server -> instagram and for now there are 3 person and someone send the req to the server , just one of them we need to identify that person, can you do that just looking at the server with a one stright line req comming? well the ansewer is we can not tell just be looking, and thats where Authentication comes into play its can "identify which user send the request" and by the answer is User "C"
+
+now lets go to Authorization : lets go with the college example in college there is 3 types of "users" one is studend who can only access the classroom , next come faculty how can access both classroom and faculty room and now comes the director who can access all every thing , classroom, faculty, and director room that what Authorization is What one user can access/do , lets go with another example Spotify : reqular user can like, lission all musics and make playlist, what simple user can not do is he can not upload a song on Spotify and the 2rd one is Artist who can do all a reugular user can do and can even upload his/her song
+
+now lets go to the validation, lets suppose we want to login, and in login fild i write "dldjhffhdspfsfh" is this a vaild email? the ans is no, its tottly incorrect , it should be somthing like this "test@email.com" and lets take another example like you want to login and with number this time, and you type "lsafjsdfljs" is correct number for login? the answer is again no, its not even a number , "the process of checking the data format is correct or not is called validation"
+
+now lets go with verification, let go to login page, there we see email field and in that email fild i write "neo@matrix.net", so is it mine? how can anyone know? "to check the data belong to right person or not is called verification"
+
+
+now to identify how the request is comming to the server, its a whole process :
+
+                                   (at the time of reqister)
+ USER (request)  ----------------> register  ---------------------------> SERVER and server do 1)save user data in DB 
+  (send tokern back to the user as a response)                            2) create token for the user, with user data
+                                  { at the time of req, he give this
+                                    name:Testn_Name,
+                                    email:test@emial.com,            -----> all this data go to req.body
+                                    password:test123,
+                                  }
+
+                                  "Token is like a ID card which they need to show to the server
+now there its kinde of a rule like every user request should contain that token, like token a,b c users and each token contion the user information so server will know who send the req and then send him the resonse  
+
+now like we want to know whose school this kid belong to then he will show you the id(token) and stamp, but what if that stamp got stolen then other can also make the id with stamp, now to free from that we use: JWT_SECRET which only store on server and server sign the token with JWT_SECRET and its a random long string
