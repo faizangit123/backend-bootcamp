@@ -1,0 +1,23 @@
+Day-7(1-8-26):
+well for practice i just rewrite all the backend code again like all the CURD api, config -> database , model -> note.model.js , .env, server.js and now the Authentication system concept that i learn yesterday i understand 4 main pillers and now i am going to appy then with the coding and its now its time to increase the folder structure like register api, for Authentication we are going to make routes and in that we are going to make a file name auth.routes.js, we wrtie all the auth api in auth.routes.js and export them in app.js and we use .Router() if we want to make api other then in app.js for creating ./register api
+
+there is one problem : {
+    "name":"test",
+    "email":"test@email.com",
+    "password":"testtry"
+}, when we send again then it will create same user again with same email , so it should say this email already exit, try wtih differnt email ,so we need to modify our schema 
+
+| Status Code         | When to use                                             | Example                                             |
+| ------------------- | ------------------------------------------------------- | --------------------------------------------------- |
+| **400 Bad Request** | The client sent an invalid or malformed request.        | Missing fields, invalid JSON, invalid email format. |
+| **409 Conflict**    | The request is valid, but conflicts with existing data. | Email already exists, username already taken.       |
+
+now for the 2rd part we need to npm i jsonwebtoken
+and if we want to create a jwt secret use this https://jwtsecrets.com/ 
+
+Token is basecally a long string , which contail all the user data and a sign jwt_secret, all server have different jwt_secretS and to check if this token contail the user details we can check on https://www.jwt.io/
+
+now the 3 step with every request should contain that token, shis is where cookies come into play, cookies: its in the client side browser and server has the access and server can write the data and if there is any data present it can also read it so first we install it like npm i cookie-parser and we use it as middle ware in app.js 
+
+and the one mistake i made is its cookie not cookies
+now the question why cookies? becaue now we dont need to write code like sending token with every request to the server , becaue now server can just check own his own inside user cookie browser and token only create two time one is login and other is register time, and its also expire 
