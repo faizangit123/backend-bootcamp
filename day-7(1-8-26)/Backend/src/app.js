@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser')
 const app = express();
 
 app.use(express.json());
-app.use(cookieParser())
+app.use(cookieParser()); // we need this package to store the token in cookie in the client browser done by the server 
 app.use('/api/auth', authRouter)       // we showing the our register url with a prefix : /api/auth/ then register
 
 app.post('/api/notes', async (req, res) => {

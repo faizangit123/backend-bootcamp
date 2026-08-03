@@ -5,7 +5,7 @@ there is one problem : {
     "name":"test",
     "email":"test@email.com",
     "password":"testtry"
-}, when we send again then it will create same user again with same email , so it should say this email already exit, try wtih differnt email ,so we need to modify our schema 
+}, when we send it again then it will create same user again with same email , so it should say this email already exit, try wtih differnt email ,so we need to modify our schema 
 
 | Status Code         | When to use                                             | Example                                             |
 | ------------------- | ------------------------------------------------------- | --------------------------------------------------- |
@@ -15,9 +15,9 @@ there is one problem : {
 now for the 2rd part we need to npm i jsonwebtoken
 and if we want to create a jwt secret use this https://jwtsecrets.com/ 
 
-Token is basecally a long string , which contail all the user data and a sign jwt_secret, all server have different jwt_secretS and to check if this token contail the user details we can check on https://www.jwt.io/
+Token is basically a long string , which contail all the user data and a sign jwt_secret, all server have different jwt_secretS and to check if this token contail the user details we can check on https://www.jwt.io/
 
-now the 3 step with every request should contain that token, shis is where cookies come into play, cookies: its in the client side browser and server has the access and server can write the data and if there is any data present it can also read it so first we install it like npm i cookie-parser and we use it as middle ware in app.js 
+now the 3 step with every request should contain that token, this is where cookies come into play, cookies: its in the client side browser and server has the access and server can write the data and if there is any data present it can also read it so first we install it like npm i cookie-parser and we use it as middleware in app.js 
 
 and the one mistake i made is its cookie not cookies
-now the question why cookies? becaue now we dont need to write code like sending token with every request to the server , becaue now server can just check own his own inside user cookie browser and token only create two time one is login and other is register time, and its also expire 
+now the question why cookies? becaue now we dont need to write code like sending token with every request to the server , becaue now server can just check own his own inside user cookie browser and token only create two time one is login and other is register time, and its cookie also expire 

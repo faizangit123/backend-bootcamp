@@ -1,0 +1,7 @@
+day-2 (2-8-26):
+today i rewrite everything again like uses.model.js and routes -> auth.route.js and post register api and token , cookie 
+now its time for bcrypt.js 
+
+now i just created POST /proctected api and cl it req.cookies then it will give me the current jwt_token cookies we have from postman with /api/auth/protected and i make a new cookie like test_cookie = Hello_mosie_mosie; and it will now show in the cl , because server can access the app the data when we send the post req
+
+now why we are creating login then? because if user want new token then we create login
