@@ -6,7 +6,7 @@ and the file name is apiname.model.js
 
 //db has a simple rule all you need to tell them what kind of data are you going to store, like in which format you would like to store you data than this process is called schema (how its look, property and its type)
 
-// mongoose package create the unique id for every notes collection, as it contain all the notes
+// mongoose package create the unique _id for every notes collection, as it contain all the notes
 
 // if we are writing an extra property on backend logic but not writing it in schema then db will ignore it
 

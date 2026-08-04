@@ -4,9 +4,10 @@
  */
 const express = require("express");
 const userModel = require("../models/user.model");
-const authRouter = express.Router();
 const jwt = require("jsonwebtoken");
 const crypto = require('crypto')  // for password hashing
+const authRouter = express.Router();
+
 // POST /api/auth/register
 // 1st) we make a post api
 authRouter.post("/register", async (req, res) => {
@@ -26,13 +27,13 @@ authRouter.post("/register", async (req, res) => {
   // then hash the password with hash variable
   const user = await userModel.create({ name, email, password:hash });
   // 2rd)now for token we need to install jwtwebtoken then req, then process.env.jwt_secret
-  // after npm i cookie-parser to store the token and req it on app.js then we make it
   const token = jwt.sign(
     {
       id: user._id,
       email: user.email,
     },process.env.JWT_SECRET,
   );
+  // after npm i cookie-parser to store the token and req it on app.js then we make it
   // then show the token in cookie
   res.cookie("JWT_TOKEN", token);
   res.status(201).json({
@@ -85,3 +86,4 @@ authRouter.post('/protected', (req,res)=>{
 })
 // and we need to export authrouther in app.js
 module.exports = authRouter;
+  
