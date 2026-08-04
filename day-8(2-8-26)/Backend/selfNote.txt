@@ -4,4 +4,22 @@ now its time for bcrypt.js
 
 now i just created POST /proctected api and cl it req.cookies then it will give me the current jwt_token cookies we have from postman with /api/auth/protected and i make a new cookie like test_cookie = Hello_mosie_mosie; and it will now show in the cl , because server can access the app the data when we send the post req
 
-now why we are creating login then? because if user want new token then we create login
+now why we are creating login then? because now "register" and need "new token" then we create login, now he will request for login 
+now for the login how flow will work
+
+user--------------------------- login ---------------------------> server 
+(request for login)           {(he need to things)              (it check if email & password is right, then create a new token and give it to user)
+                                 email,
+                                 password
+                               }
+  (new token to user)<---------------------------------------------server
+
+  one question if can be seen in browser then can anyone can steel and use it righ?, but here the thing token live in cookie in your borwser in your device mean if anyone have the device access if should be you righ or someone you know.
+  and we dont store sensitive data in token , like phone no. we only show user id 
+
+  one more thing i need to lear as if go further i dont only need token, "user agent"
+
+  what do you know about data breach or data leak? like all the data is leak from your db and that data is now in someone else hand, now its in the internet and The solution this problem we use "Hashing algo.." -> (322Njfo32nfj..) convert words into a well calculated sting, which is bcrypt, we can get from "md5 hash generator".
+  Now some of the properties of "Hashing" is:
+  (1) when you give same name again it will generate the same hashing string.
+  (2) Hash can not be converted into plain text (its ONE WAY), if we do that if will give new hash sting.

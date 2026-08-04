@@ -384,10 +384,48 @@ There is one problem : {"name":"test","email":"test@email.com","password":"testt
 - Cookies
 - Cookie Parser
 - Duplicate User Validation
-- MongoDB
-- Environment Variables
-- Project Structure
 - Authentication Flow
+
+---
+
+## ✅ Day 8 - Login API, Cookies & Password Hashing
+### What I did :
+Today I continued building the authentication system by implementing the Login API and understanding how user authentication works after registration.
+Before writing any new code, I rebuilt everything I had learned so far from scratch. Rewriting previous topics helps me understand the concepts instead of memorizing the code.
+### The thing i write : 
+- Recreated the authentication system from scratch.
+- Built the **Login API**.
+- Verified whether the user exists using their email.
+- Compared the entered password with the hashed password stored in the database.
+- Generated a new JWT token after successful login.
+- Stored the JWT inside browser cookies.
+- Created a Protected Route to inspect cookies sent by the client.
+- Added a custom cookie to better understand how the server reads cookies from incoming requests.
+### what my Takeaway is : 
+- Registration and Login serve different purposes.
+  - **Register** creates a new user.
+  - **Login** verifies the user and issues a fresh authentication token.
+- Cookies allow the browser to automatically send the token with every request.
+- Authentication becomes much simpler because the client doesn't need to manually attach the token every time.
+- Sensitive information should never be stored inside a JWT token. Only essential information such as the user ID should be included.
+- Passwords should never be stored in plain text.
+### Understanding Password Hashing :
+I also learned why password hashing is one of the most important parts of authentication.
+If a database is ever leaked, storing plain-text passwords would expose every user's password immediately.
+Instead, passwords are converted into a one-way hash before being stored.
+Some important properties of hashing:
+- The same input always produces the same hash.
+- Hashes cannot be reversed back into the original password.
+- During login, the entered password is hashed again and compared with the stored hash.
+Today I used the **MD5** hashing algorithm to understand the concept. In the next step, I'll replace it with **bcrypt**, which is the recommended approach for securely storing passwords.
+
+### 🚀 Skills Learned
+- Login API
+- JWT Authentication
+- Cookies
+- Cookie Parser
+- Password Hashing
+- MD5
 
 ## 🎯 Goal
 

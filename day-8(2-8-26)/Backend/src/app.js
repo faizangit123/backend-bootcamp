@@ -1,5 +1,5 @@
 /**
- *  what it do 1) create a server and use for middlewares and route
+ *  what it do 1) create a server instence and use for middlewares and route
  */
 
 const express = require('express');

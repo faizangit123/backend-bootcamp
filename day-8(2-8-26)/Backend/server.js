@@ -1,7 +1,7 @@
 /**
  * 1) server ko start karna 
  * 2) server ko db se connect karna
- * 3) we req dotenv and .config(), and it should be at the top
+ * 3) we to store secrets we req dotenv and .config(), and it should be at the top
  */
 
 require('dotenv').config()
