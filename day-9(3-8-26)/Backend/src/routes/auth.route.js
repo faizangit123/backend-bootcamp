@@ -5,7 +5,6 @@
  * 3) Generates a JWT token containing user information.
  * 4) Signs the token using JWT_SECRET.
  */
-
 // 1) Import Express to create authentication routes.
 const express = require("express");
 // 2) Import the User model (schema).
@@ -17,7 +16,6 @@ const authRouter = express.Router();
 const crypto = require("crypto");
 // 5) Import jsonwebtoken to generate JWT tokens.
 const jwt = require("jsonwebtoken");
-
 // POST /api/auth/register
 // 1) Receive user data from the --> {req.body}
 authRouter.post("/register", async (req, res) => {
@@ -42,18 +40,39 @@ authRouter.post("/register", async (req, res) => {
       email: user.email,
     },
     process.env.JWT_SECRET,
+    { expiresIn: "1h" },
   );
-  // 7) store the jwt token in the cookie, for that we need to i npm cookie-parser
+  // 7) server store the jwt token in the cookie, for that we need to i npm cookie-parser
   res.cookie("JWT_TOKEN", token);
-
+  // why coolie? server can only access cook-storage
   // 8) send the success response with status
-  res.status(200).json({
+  res.status(201).json({
     message: "Registraction successfull.",
-    user,
+    user: {
+      name: user.name,
+      email: user.email,
+      password: user.password,
+    },
     token,
   });
 });
-
+// to let server verify the token is right and from same user
+authRouter.get("/get-me", async (req, res) => {
+  //1) to get the token
+  const token = req.cookies.JWT_TOKEN;
+  //2) server verify the token
+  const deCoder = jwt.verify(token, process.env.JWT_SECRET);
+  console.log(req.deCoder);
+  //3)
+  const user = await userModel.findById(deCoder.id);
+  
+  res.status(200).json({
+    user:{
+      name:user.name,
+      email:user.email
+    }
+  })
+});
 // POST /api/auth/login
 // 1) Check if the email and password match the database.
 authRouter.post("/login", async (req, res) => {
@@ -64,6 +83,7 @@ authRouter.post("/login", async (req, res) => {
     // 3) Return 409 if the user is not found.
     return res.status(409).json({
       message: "User not found with this email.",
+      c,
     });
   }
   // 4) Hash the entered password and compare it with the stored password.
@@ -76,6 +96,7 @@ authRouter.post("/login", async (req, res) => {
   }
   // 5) Generate a new JWT token after successful login.
   const token = jwt.sign(
+    // payload, 1) user data : user. 2) unique : with db _id
     {
       id: user._id,
     },
@@ -97,5 +118,4 @@ authRouter.post("/protected", async (req, res) => {
     message: "This route is protected.",
   });
 });
-
 module.exports = authRouter;

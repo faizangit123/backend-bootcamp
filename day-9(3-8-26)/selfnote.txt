@@ -1,0 +1,36 @@
+DAY-9(3-8-26) :
+Auntentication : 
+let say there a 3 users A,B,C for now making request from the server and the request can be anything, let say we have social media kind of app, 
+
+    A -------------->
+                       (POST /api/post/postId/link)
+                       (POST /api/post/postId/save)
+    B -------------->          Server 
+    
+
+
+
+    C -------------->
+  (request)
+
+
+If we want to know which post is being liked or saved, we use the postId from the route parameters. The postId tells the backend which post the user is interacting with.
+
+But the postId does not tell us who is liking or saving the post. To know which user performed the action, we use authentication (such as JWT). Authentication identifies the currently logged-in user, so the backend automatically knows who is making the request. Because of this, we don't need to send the userId from the frontend. This also makes the application more secure because users cannot pretend to be someone else by sending a different userId.
+
+Auth : to identify which user is requesting on our server 
+
+and to identify the user we "Register" like all users 1st need to register 
+
+for Register :
+1 step -> to identify the user, we 1st ask for "register"
+                                  
+                (data send by the user) -> req.body     
+                      req.body{  
+                               name,             (1) To store the data in DB
+ All Users -----------------   email,   ----------------> SERVER 
+                               password         (2) token create with user data,
+                              }                & sign with JWT_SECRET(only in server)
+ token(like id card) <------------------------- (sign token)(server dont store token)  
+
+Now, every time a user makes a request, they need to send the token so the server knows who they are. Instead of sending the token manually with every request, we store it in a cookie in the client's browser. After that, whenever the user makes a request, the browser automatically includes the cookie. The server reads the token from the cookie and verifies the user, so the user doesn't have to send the token manually every time
