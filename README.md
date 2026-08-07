@@ -427,6 +427,57 @@ Today I used the **MD5** hashing algorithm to understand the concept. In the nex
 - Password Hashing
 - MD5
 
+---
+
+## ✅ Day 9 - Understanding Authentication & User Identification
+### What I Understand : 
+Today I focused on understanding how the backend identifies **who** is making a request.
+One question kept coming to my mind:
+> If multiple users are sending requests to the server at the same time, how does the backend know which user is performing an action?
+That question helped me understand why authentication exists.
+---
+### What i did : 
+- Improved my authentication flow.
+- Implemented JWT verification using `jwt.verify()`.
+- Created a **Get Me** (`/get-me`) API.
+- Read JWT tokens from browser cookies.
+- Verified the JWT using the server's secret key.
+- Fetched the authenticated user's information from MongoDB.
+- Continued improving the Register and Login APIs.
+---
+###  MY Key Takeaways : 
+Suppose three different users are using a social media application.
+Each of them can perform actions like:
+- Like a post - Save a post - Comment - Share
+The request may look like:```POST /api/post/:postId/like```
+The `postId` tells the backend **which post** is being liked. But...
+It doesn't tell the backend **who** liked it.
+That's where authentication comes in.
+The backend identifies the logged-in user using the JWT stored inside the browser cookie.
+Because of this:
+- The frontend doesn't need to send the `userId`.
+- Users can't simply pretend to be another user by changing the request.
+- The server decides who the user is after verifying the JWT.
+---
+###  Authentication Flow
+1. User registers.
+2. User information is stored in MongoDB.
+3. Server creates a JWT.
+4. JWT is signed using `JWT_SECRET`.
+5. JWT is stored inside a browser cookie.
+6. Browser automatically sends the cookie with future requests.
+7. Server verifies the JWT.
+8. User is identified successfully.
+
+---
+###  Skills Learned
+- JWT Verification
+- Browser Cookies
+- Authentication Flow
+- `jwt.verify()`
+- User Identification
+- Get Me API
+
 ## 🎯 Goal
 
 Document my backend learning journey step by step while building a strong foundation in Node.js, Express.js, MongoDB, REST APIs, Authentication, and Deployment.
