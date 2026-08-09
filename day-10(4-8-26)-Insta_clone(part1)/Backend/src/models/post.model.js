@@ -2,15 +2,20 @@ const mongoose = require("mongoose");
 
 const postSchema = new mongoose.Schema({
   caption: {
-    type:String,
-    default:""
+    type: String,
+    default: "",
   },
-  img_url:{
-    type:String,
-    require:[true,"Image is needed to creating an post"]
+  img_url: {
+    type: String,
+    require: [true, "Image is needed to creating an post"],
   },
+  userId: {
+    ref: "users",
+    type: mongoose.Schema.Types.ObjectId,
+    require: [true, "user id is required for creating an post"],
+  }
 });
-
-const postModel = mongoose.model("posts", postSchema);//its going to be post collection, so post data will store
+// 2rd collection
+const postModel = mongoose.model("posts", postSchema); //its going to be post collection, so post data will store
 
 module.exports = postModel;

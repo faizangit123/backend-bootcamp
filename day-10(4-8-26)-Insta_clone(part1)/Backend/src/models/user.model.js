@@ -10,18 +10,20 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     unique: true,
-    required:true,
+    required: true,
   },
-  password:{
-    type:String,
-    required:true,
+  password: {
+    type: String,
+    required: true,
   },
-  profilePic:{
-    type:String,
-    default:"https://ik.imagekit.io/Arman123/Screenshot_2023-10-01-23-40-13-586_com.brave.browser.jpg"       // when we dont have user image, by cloud porvider : imagekit.io
-  }
+  profilePic: {
+    type: String,
+    default:
+      "https://ik.imagekit.io/Arman123/Screenshot_2023-10-01-23-40-13-586_com.brave.browser.jpg", // when we dont have user image, by cloud porvider : imagekit.io
+  },
 });
 
+// 1st collection
 const userModel = mongoose.model("users", userSchema);
 
 module.exports = userModel;

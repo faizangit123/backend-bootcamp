@@ -69,3 +69,22 @@ now for today is insta post : (we will do logout letter)
     createdAt:Date-time
 }
 NOTE: we will do like and comment in part 3
+
+and to create a api we create in routes like post.routers.js
+
+now postRouter.post('/', postController.createPostController); showing undefine as its not raw, its form data now where we send caption and image url and express dont read it by default and as express also dont read raw too, for that we use middleware -> app.use(express.json()) 
+for now we need to i multer: as express dont read file by default, by multer it has power now, as want to send data in form data
+
+for that we use multer : which uses two type of storages 
+1. disk storeage -> store in server
+2. memory storage -> store in server(ram) -> server temp store the file and when th file get to the cloud stroge then server delete or remove the file and for that we use: const upload = multer.({storage:multer.memoryStroage()})
+
+[Object: null prototype] { caption: 'test1' }
+  fieldname: 'image',
+  originalname: '704387.png',
+  encoding: '7bit',
+  mimetype: 'image/png',
+  buffer: <Buffer 89 50 4e 47 0d 0a 1a 0a 00 00 00 0d 49 48 44 52 00 00 0a 00 00 00 06 40 08 02 00 00 00 3a ce 8c 97 00 00 00 19 74 45 58 74 53 6f 66 74 77 61 72 65 00 ... 5155170 more bytes>,
+  size: 5155220
+
+lets suppose we a user with 20000 followers and he store the img in server which is 100kb, means server need to send this img to 20000 followers as it become 200md means server need 200md bandwidth(like how much data its transfer), as server also have bandwidth pricing, and to avoid the high pricing we use cloud storage provider, like from aws -> s3, and imagekit, cloudinary -> independent
