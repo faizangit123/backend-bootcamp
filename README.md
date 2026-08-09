@@ -478,6 +478,36 @@ Because of this:
 - User Identification
 - Get Me API
 
+---
+
+## Day 10 - Instagram Clone (Part 1)
+Today I started building an Instagram Clone by putting the backend concepts I've learned so far into a real project.
+
+### What I did
+- Planned the main features before starting the code.
+- Decided to use a **monolithic folder structure**.
+- Planned authentication:
+  - Register
+  - Login
+  - Logout
+  - OTP-based registration
+- Planned post features:
+  - Create posts
+  - View feed
+  - Like posts
+  - Save posts
+- Planned user features:
+  - Followers
+  - Following
+- Designed the initial User schema.
+- Defined a simple login flow using password hashing, JWT, and cookies.
+- Created a **Controller** folder to keep authentication logic such as Register and Login separate from the routes.
+
+### Key Takeaway
+Before starting a bigger project, I learned that it's better to first plan **what the application needs and how everything will be organized** instead of immediately starting to write code.
+
+I also came across a few topics I'll explore later, including Express Validator, Nodemailer, and ImageKit.
+
 ## 🎯 Goal
 
 Document my backend learning journey step by step while building a strong foundation in Node.js, Express.js, MongoDB, REST APIs, Authentication, and Deployment.
