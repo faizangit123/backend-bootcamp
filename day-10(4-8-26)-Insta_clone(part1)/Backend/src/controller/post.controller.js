@@ -1,9 +1,22 @@
 const postModel = require("../models/post.model");
+const ImageKit = require("@imagekit/nodejs");
+const { toFile } = require("@imagekit/nodejs");
 
-async function createPostController(req,res) {
-  console.log(req.body,req.file)
+const imagekit = new ImageKit({
+  privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
+});
+
+async function createPostController(req, res) {
+  console.log(req.body, req.file);
+  // send image from server to imagekit that all
+  const file = await imagekit.files.upload({
+    file: await toFile(Buffer.from(req.file.buffer), "file"),
+    fileName: "testFile",
+  });
+  res.send(file);
 }
+
 
 module.exports = {
   createPostController,
-}
+};

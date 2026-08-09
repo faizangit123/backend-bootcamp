@@ -79,6 +79,8 @@ for that we use multer : which uses two type of storages
 1. disk storeage -> store in server
 2. memory storage -> store in server(ram) -> server temp store the file and when th file get to the cloud stroge then server delete or remove the file and for that we use: const upload = multer.({storage:multer.memoryStroage()})
 
+NOTE: we also need to understand and read the documentaion too, i dont know what the code is, but i still try to understand something all the time, you will not understand it in one or two days
+
 [Object: null prototype] { caption: 'test1' }
   fieldname: 'image',
   originalname: '704387.png',
@@ -87,4 +89,8 @@ for that we use multer : which uses two type of storages
   buffer: <Buffer 89 50 4e 47 0d 0a 1a 0a 00 00 00 0d 49 48 44 52 00 00 0a 00 00 00 06 40 08 02 00 00 00 3a ce 8c 97 00 00 00 19 74 45 58 74 53 6f 66 74 77 61 72 65 00 ... 5155170 more bytes>,
   size: 5155220
 
-lets suppose we a user with 20000 followers and he store the img in server which is 100kb, means server need to send this img to 20000 followers as it become 200md means server need 200md bandwidth(like how much data its transfer), as server also have bandwidth pricing, and to avoid the high pricing we use cloud storage provider, like from aws -> s3, and imagekit, cloudinary -> independent
+lets suppose we have a user with 20000 followers and he store the img in server which is 100kb, means server need to send this img to 20000 followers as it become 200md means server need 200md bandwidth(like how much data its transfer), as server also have bandwidth pricing, and to avoid the high pricing we use cloud storage provider, like from aws -> s3, and imagekit, cloudinary -> independent
+
+i am using imagekit for cloud storage, need to read its doc and i @imagekit/nodejs
+
+DAY-12:
