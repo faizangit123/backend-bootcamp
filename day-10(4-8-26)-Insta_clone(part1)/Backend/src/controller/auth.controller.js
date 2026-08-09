@@ -3,11 +3,12 @@
  * we dont write logic in auth.routers, only in controller, as many other code will come
  */
 const userModel = require("../models/user.model");
-const crypto = require("crypto");
+// const crypto = require("crypto"); // for basic use, low lever package for security
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 // Register logic
- async function registerController(req, res){
+async function registerController(req, res) {
   const { username, bio, email, password, profilePic } = req.body;
   // if user exist with same email & username
   // server will query on the bases of email to db then db give the result
@@ -39,7 +40,8 @@ const jwt = require("jsonwebtoken");
           : "Username already exists"),
     });
   }
-  const hash = crypto.createHash("sha256").update(password).digest("hex");
+  // const hash = crypto.createHash("sha256").update(password).digest("hex");
+  const hash = await bcrypt.hash(password, 10); // 10 is salt like how many time you want to do hashing
 
   // time to create user
   const user = await userModel.create({
@@ -73,7 +75,7 @@ const jwt = require("jsonwebtoken");
 }
 
 // login logic
- async function loginController(req, res){
+async function loginController(req, res) {
   const { username, email, password } = req.body;
   // feature that we can login with either : we can do this with $or operator
   /**
@@ -97,9 +99,13 @@ const jwt = require("jsonwebtoken");
     });
   }
   // we have the user then check the pass
-  const hash = crypto.createHash("sha256").update(password).digest("hex");
-  // now check if the pass is valid
-  const isPasswordValid = hash === user.password;
+  // const hash = crypto.createHash("sha256").update(password).digest("hex");
+  // // now check if the pass is valid
+  // const isPasswordValid = hash === user.password;
+  
+  // now both line is done by hashing 
+  const isPasswordValid = await bcrypt.compare(password,user.password);
+  
   if (!isPasswordValid) {
     return res.status(401).json({
       message: "Password is incorret.",
@@ -119,10 +125,10 @@ const jwt = require("jsonwebtoken");
   res.status(200).json({
     message: "login is successful.",
     user: {
-      username:user.username,
-      email:user.email,
-      bio:user.bio,
-      profilePic:user.profilePic
+      username: user.username,
+      email: user.email,
+      bio: user.bio,
+      profilePic: user.profilePic,
     },
   });
 }
@@ -130,4 +136,4 @@ const jwt = require("jsonwebtoken");
 module.exports = {
   registerController,
   loginController,
-}
+};

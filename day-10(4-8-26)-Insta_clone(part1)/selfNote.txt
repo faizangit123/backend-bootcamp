@@ -1,5 +1,9 @@
+DAY-10(4-8-26) - Instagram Clone (part 1)
 Before we Start making a porject, there are some basic thing that we all need to follow:
-NOTE: some topic that would be good to know like express validator, node maller
+how every thing going to work, so we first write it
+NOTE: some topic that would be good to know like express validator, node maller,imagekit
+
+We are going with monolith folder structure, and for microservices we make little change but the folder name should be same 
 
 (1) What's your porject about : "Instagram Clone"
 (2) Dont just start writing code, 1st one is planning
@@ -49,3 +53,19 @@ My login flow:
 
 Note : type is a thing, its happens all the time, and many of the time the error is because of that types, i try to understand the errors and try to solve my self,
 get to know many things 
+
+now we are making new folder called Controller as it now going to save all our auth logic : register and login
+
+DAY-11(5-8-26) Part-2
+first i write the code again, then instead of useing "crypto" for basic use, low lever package for security, we going to i bcryptjs then req it, then instead of useing crypto.createHash('md5').update(password).digest('hex'),we are going to use const hash = bcrypt.hash(password,10), 10 is salt, layer of hashing
+and instead of writing hast for pass in login then check it hash with pass again, we can just use bcrypt for both we can use with a method called .compare(password,user.password)
+
+now for today is insta post : (we will do logout letter)
+(1) create post 
+{
+    caption:String,
+    img_url:String, (and how to handle on our express server)
+    user:userId,
+    createdAt:Date-time
+}
+NOTE: we will do like and comment in part 3
