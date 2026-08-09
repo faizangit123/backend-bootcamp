@@ -35,7 +35,7 @@ async function createPostController(req, res) {
   const file = await imagekit.files.upload({
     file: await toFile(Buffer.from(req.file.buffer), "file"),
     fileName: "testFile",
-    folder: "Instagram-Clone(posts)",  // now we are storing posts on this folder on imagekit, structure way
+    folder: "/Instagram-Clone/posts",  // now we are storing posts on this folder on imagekit, structure way
   });
   // res.send(file);
   // now we finally have all 3 things so let create post

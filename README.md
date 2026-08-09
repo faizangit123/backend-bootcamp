@@ -508,6 +508,36 @@ Before starting a bigger project, I learned that it's better to first plan **wha
 
 I also came across a few topics I'll explore later, including Express Validator, Nodemailer, and ImageKit.
 
+---
+
+## Day 11 - Instagram Clone (Part 2)
+
+Continued building the Instagram Clone.
+Before starting the new part, I rewrote the previous authentication code from scratch and replaced the basic MD5 password hashing with `bcryptjs`.
+
+### What I did :
+- Used `bcryptjs` for password hashing.
+- Learned about salt rounds and used `10` salt rounds.
+- Used `bcrypt.compare()` during login instead of manually hashing the password again.
+- Started building the Post feature.
+- Created a separate `post.routes.js` for post-related APIs.
+- Planned the Post schema:
+  - `caption` - `img_url` - `user` - `createdAt`
+- Learned why `express.json()` is not enough when sending images.
+- Used `multer` to handle `multipart/form-data`.
+- Learned about Multer's disk storage and memory storage.
+- Used memory storage so the uploaded image can temporarily stay in memory before being sent to cloud storage.
+- Started using ImageKit for storing images.
+
+### Key Takeaway
+I learned that files like images shouldn't simply be stored on the backend server when an application can have thousands of users.
+
+For example, if a user with 20,000 followers uploads an image, serving that image directly from the backend can consume a lot of bandwidth.
+
+That's why applications commonly use dedicated cloud storage such as S3, ImageKit, or Cloudinary.
+
+I'm also learning to read the documentation instead of expecting to understand every package immediately. I won't understand everything in one or two days, but trying to understand what the code is actually doing is part of the process.
+
 ## 🎯 Goal
 
 Document my backend learning journey step by step while building a strong foundation in Node.js, Express.js, MongoDB, REST APIs, Authentication, and Deployment.
