@@ -63,7 +63,7 @@ authRouter.get("/get-me", async (req, res) => {
   //2) server verify the token
   const deCoder = jwt.verify(token, process.env.JWT_SECRET);
   console.log(req.deCoder);
-  //3)
+  //3) server find the user token by _id from db
   const user = await userModel.findById(deCoder.id);
 
   res.status(200).json({

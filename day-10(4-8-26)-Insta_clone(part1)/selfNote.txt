@@ -1,22 +1,22 @@
 DAY-10(4-8-26) - Instagram Clone (part 1)
-Before we Start making a porject, there are some basic thing that we all need to follow:
+Before we Start making a project, there are some basic thing that we all need to follow:
 how every thing going to work, so we first write it
 NOTE: some topic that would be good to know like express validator, node maller,imagekit
 
 We are going with monolith folder structure, and for microservices we make little change but the folder name should be same 
 
-(1) What's your porject about : "Instagram Clone"
+(1) What's your project about : "Instagram Clone"
 (2) Dont just start writing code, 1st one is planning
-    (2.1) The comman(basic) feature your project should have 
+    (2.1) The common (basic) feature your project should have 
     like: Authentication
-          -> rigester
+          -> register
              (1)User ka data save karna
              (2)token should have user data & sign by JWT_SECRET, then give to user
           -> login
           -> logout (New: token backlisting)
           -> OTP based registration (abv)
 
-    Now, What featue your project should have :
+    Now, What feature your project should have :
     (1) POST api:
        -> create POST
        -> user can see the feed
@@ -29,7 +29,7 @@ We are going with monolith folder structure, and for microservices we make littl
 Now How User schema should look :
 
 user{
-    username:Striing,
+    username:String,
     bio:String,
     email:{
         type:String,
@@ -38,7 +38,7 @@ user{
     password:String,
   //  followers:Array,
   //  following:Array,
-    prifilePic:String,
+    profilePic:String,
 }
 
 My login flow:
@@ -79,7 +79,7 @@ for that we use multer : which uses two type of storages
 1. disk storeage -> store in server
 2. memory storage -> store in server(ram) -> server temp store the file and when th file get to the cloud stroge then server delete or remove the file and for that we use: const upload = multer.({storage:multer.memoryStroage()})
 
-NOTE: we also need to understand and read the documentaion too, i dont know what the code is, but i still try to understand something all the time, you will not understand it in one or two days
+NOTE: we also need to understand and read the documentation too, i dont know what the code is, but i still try to understand something all the time, you will not understand it in one or two days
 
 [Object: null prototype] { caption: 'test1' }
   fieldname: 'image',
@@ -93,4 +93,19 @@ lets suppose we have a user with 20000 followers and he store the img in server 
 
 i am using imagekit for cloud storage, need to read its doc and i @imagekit/nodejs
 
-DAY-12:
+DAY-12(6-8-26):Part-3
+now instagram POST api
+
+lets suppose there are 3 user for now and a server, the post api ask for is caption and image-file
+but here the question how does server know which user is requesting? from server?
+for that we have token like for A,B,C user token-A,token-B,token-C, so with the token we save the post with user id
+// for POST we need 3 things as per the schema
+/**
+ * (1) caption -> done (form data)
+ * (2) img_url -> done (form data) -> by imagekit
+ * (3) userId -> done (only when user login) -> get the auth -> token(by ref)
+ */
+     
+     folder: "Instagram-Clone(posts)", now we are storing posts on this folder on imagekit, structure way
+
+now we finally have all 3 things so let create post
