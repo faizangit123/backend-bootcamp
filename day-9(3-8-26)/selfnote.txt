@@ -6,13 +6,9 @@ let say there a 3 users A,B,C for now making request from the server and the req
                        (POST /api/post/postId/link)
                        (POST /api/post/postId/save)
     B -------------->          Server 
-    
-
-
 
     C -------------->
   (request)
-
 
 If we want to know which post is being liked or saved, we use the postId from the route parameters. The postId tells the backend which post the user is interacting with.
 

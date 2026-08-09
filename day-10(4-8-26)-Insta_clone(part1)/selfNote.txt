@@ -1,0 +1,51 @@
+Before we Start making a porject, there are some basic thing that we all need to follow:
+NOTE: some topic that would be good to know like express validator, node maller
+
+(1) What's your porject about : "Instagram Clone"
+(2) Dont just start writing code, 1st one is planning
+    (2.1) The comman(basic) feature your project should have 
+    like: Authentication
+          -> rigester
+             (1)User ka data save karna
+             (2)token should have user data & sign by JWT_SECRET, then give to user
+          -> login
+          -> logout (New: token backlisting)
+          -> OTP based registration (abv)
+
+    Now, What featue your project should have :
+    (1) POST api:
+       -> create POST
+       -> user can see the feed
+       -> LIKE POST (new: collection topic)
+       -> SAVE POST
+    (2) USERs (User related feature) 
+       -> followers
+       -> following
+
+Now How User schema should look :
+
+user{
+    username:Striing,
+    bio:String,
+    email:{
+        type:String,
+        unique:true
+    }
+    password:String,
+  //  followers:Array,
+  //  following:Array,
+    prifilePic:String,
+}
+
+My login flow:
+1.Final flow (simple)
+2.User sends username/email + password.
+3.Server finds the user.
+4.Server hashes the entered password.
+5.Server compares the hash with the stored hash.
+6.If they match, create a JWT.
+7.Store the JWT in a cookie.
+8.Return only safe user information (username, email, bio, profilePic, etc.)—never the password, even if it's hashed.
+
+Note : type is a thing, its happens all the time, and many of the time the error is because of that types, i try to understand the errors and try to solve my self,
+get to know many things 

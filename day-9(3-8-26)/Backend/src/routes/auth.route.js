@@ -65,13 +65,13 @@ authRouter.get("/get-me", async (req, res) => {
   console.log(req.deCoder);
   //3)
   const user = await userModel.findById(deCoder.id);
-  
+
   res.status(200).json({
-    user:{
-      name:user.name,
-      email:user.email
-    }
-  })
+    user: {
+      name: user.name,
+      email: user.email,
+    },
+  });
 });
 // POST /api/auth/login
 // 1) Check if the email and password match the database.
@@ -86,9 +86,10 @@ authRouter.post("/login", async (req, res) => {
       c,
     });
   }
+
+  const hash = crypto.createHash("md5").update(password).digest("hex");
   // 4) Hash the entered password and compare it with the stored password.
-  const isPasswordMatching =
-    user.password === crypto.createHash("md5").update(password).digest("hex");
+  const isPasswordMatching = user.password === hash;
   if (!isPasswordMatching) {
     return res.status(401).json({
       message: "Invalid password.",
@@ -101,12 +102,17 @@ authRouter.post("/login", async (req, res) => {
       id: user._id,
     },
     process.env.JWT_SECRET,
+    { expiresIn: "1h" },
   );
   // 6) Store the new JWT token in a cookie.
   res.cookie("JWT_TOKEN", token);
   // 7) success staut for login
   res.status(200).json({
     message: "Login successfull.",
+    user:{
+      name:user.name,
+      email:user.email
+    }
   });
 });
 
