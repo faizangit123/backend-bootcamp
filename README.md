@@ -538,6 +538,35 @@ That's why applications commonly use dedicated cloud storage such as S3, ImageKi
 
 I'm also learning to read the documentation instead of expecting to understand every package immediately. I won't understand everything in one or two days, but trying to understand what the code is actually doing is part of the process.
 
+---
+
+## Day 12 - Instagram Clone (Part 3)
+
+Today I completed the main **Create Post API** for the Instagram Clone.
+
+### What I learned
+
+- Connected authentication with the Post API.
+- Learned how the server identifies the user from the JWT token.
+- Used the logged-in user's `userId` when creating a post instead of trusting a `userId` sent from the frontend.
+- Completed the three main parts of a post:
+  - `caption`
+  - `img_url`
+  - `userId`
+- Stored uploaded images in ImageKit under:
+  `Instagram-Clone/posts`
+- Learned how to handle missing, invalid, and expired JWT tokens.
+- Understood why `jwt.verify()` should be handled with `try...catch` because an invalid or expired token throws an error.
+- Used `401 Unauthorized` for authentication failures instead of returning a `500 Internal Server Error`.
+
+### Key Takeaway
+
+The frontend doesn't need to tell the server who created the post.
+
+The user sends the JWT, the server verifies it, gets the user's ID from the token, and uses that ID when saving the post.
+
+I also learned why applications don't always send the original full-size image to users. Large images consume more bandwidth, so images can be converted and compressed while keeping a similar resolution and visual quality
+
 ## 🎯 Goal
 
 Document my backend learning journey step by step while building a strong foundation in Node.js, Express.js, MongoDB, REST APIs, Authentication, and Deployment.
