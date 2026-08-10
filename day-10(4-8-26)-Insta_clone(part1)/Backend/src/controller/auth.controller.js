@@ -59,7 +59,7 @@ async function registerController(req, res) {
       id: user._id,
     },
     process.env.JWT_SECRET,
-    { expiresIn: "1h" },
+    { expiresIn: "7d" },
   );
   // now need to save the token on cookie, i need to i cookie-parser
   res.cookie("jwt_token", token);
@@ -76,6 +76,7 @@ async function registerController(req, res) {
 
 // login logic
 async function loginController(req, res) {
+  console.log(req.body)
   const { username, email, password } = req.body;
   // feature that we can login with either : we can do this with $or operator
   /**
@@ -117,7 +118,7 @@ async function loginController(req, res) {
       id: user._id,
     },
     process.env.JWT_SECRET,
-    { expiresIn: "1h" },
+    { expiresIn: "7d" },
   );
   // then set the token in cookie
   res.cookie("jwt_token", token);
