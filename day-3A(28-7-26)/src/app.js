@@ -4,7 +4,7 @@ const app = express();
 
 app.use(express.json());
 
-const notes = []
+const notes = [];
 // POST -> /notes(API) and 201 status code , for creating successfully
 app.post('/notes', (req, res) => {
   notes.push(req.body);

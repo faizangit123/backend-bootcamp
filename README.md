@@ -106,13 +106,13 @@ Today I combined the concepts I learned earlier and built a simple CRUD API usin
   - `req.body` (receiving request data)
   - `req.params` (receiving values from the URL)
 
-### 💡 Key Takeaways : That i get to know
+### Key Takeaways : That i get to know
 
 - **Folder structure does matters.** As projects grow, organizing files into folders makes the code easier to understand, maintain, and scale.
 - Writing code once isn't enough to truly understand it. Before moving on to a new topic, I rewrite everything I've learned from scratch without looking at previous code. This helps me identify gaps in my understanding and reinforces the concepts.
 - I realized that using JavaScript's `delete` operator on an array doesn't completely remove the element. Instead, it leaves an empty slot (`undefined`) while keeping the array length the same. This helped me better understand how arrays work internally.
 
-### 🚀 Skills Learned
+### Skills Learned
 
 - Project Structure
 - Express Configuration
@@ -131,7 +131,7 @@ Today I combined the concepts I learned earlier and built a simple CRUD API usin
 Today I rebuilt my Notes CRUD API from scratch again, but this time I focused on writing cleaner APIs and understanding how data is actually stored.
 > **Note:** I originally divided Day 3 into multiple parts while learning. After completing everything, I summarized it into a single README since all the concepts are connected.
 
-## 📚 What I Built
+## What I did :
 - Rebuilt my Notes CRUD API from scratch.
 - Added proper HTTP Status Codes.
 - Connected the API to **MongoDB Atlas** using **Mongoose**.
@@ -174,7 +174,7 @@ But I cannot upload songs or modify Spotify's database.
 Only artists and authorized systems can create or update that data.
 This helped me understand that applications control who can read, create, update, and delete data from the database.
 
-### 💡 My Biggest Takeaway
+### My Biggest Takeaway
 One habit I've started following is rewriting all the previous day's code from scratch before learning something new.
 Instead of copying old code, I rebuild everything on my own. Sometimes I forget things or make mistakes, but that's exactly what helps me understand the concepts more deeply.
 - Rewriting previous code from scratch before learning something new helps me understand concepts much more deeply.
@@ -480,7 +480,7 @@ Because of this:
 
 ---
 
-## Day 10 - Instagram Clone (Part 1)
+## ✅ Day 10 - Instagram Clone (Part 1)
 Today I started building an Instagram Clone by putting the backend concepts I've learned so far into a real project.
 
 ### What I did
@@ -510,7 +510,7 @@ I also came across a few topics I'll explore later, including Express Validator,
 
 ---
 
-## Day 11 - Instagram Clone (Part 2)
+## ✅ Day 11 - Instagram Clone (Part 2)
 
 Continued building the Instagram Clone.
 Before starting the new part, I rewrote the previous authentication code from scratch and replaced the basic MD5 password hashing with `bcryptjs`.
@@ -540,7 +540,7 @@ I'm also learning to read the documentation instead of expecting to understand e
 
 ---
 
-## Day 12 - Instagram Clone (Part 3)
+## ✅ Day 12 - Instagram Clone (Part 3)
 
 Today I completed the main **Create Post API** for the Instagram Clone.
 

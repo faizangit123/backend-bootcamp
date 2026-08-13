@@ -1,7 +1,9 @@
 const express = require('express');
 const noteModel = require('./model/notes.model');  // to perform curd operation
-const app = express();
-app.use(express.json())
+
+const app = express();     // server instance
+
+app.use(express.json())   // middleware for json
 
 /**
  * - POST /notes(api)

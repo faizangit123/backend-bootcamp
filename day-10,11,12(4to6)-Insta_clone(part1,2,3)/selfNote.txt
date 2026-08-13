@@ -73,9 +73,9 @@ NOTE: we will do like and comment in part 3
 and to create a api we create in routes like post.routers.js
 
 now postRouter.post('/', postController.createPostController); showing undefine as its not raw, its form data now where we send caption and image url and express dont read it by default and as express also dont read raw too, for that we use middleware -> app.use(express.json()) 
-for now we need to i multer: as express dont read file by default, by multer it has power now, as want to send data in form data
+for now we need to i "MULTER": as express dont read file by default, by "MULTER" it has power now, as want to send data in form data
 
-for that we use multer : which uses two type of storages 
+For that we use MULTER : which uses two type of storages 
 1. disk storeage -> store in server
 2. memory storage -> store in server(ram) -> server temp store the file and when th file get to the cloud stroge then server delete or remove the file and for that we use: const upload = multer.({storage:multer.memoryStroage()})
 
@@ -151,4 +151,3 @@ One more thing we dont show big image on our website(client side), but we do sto
 
 we use image compresser like 1st convert the img to webp then compresse the webp img->30 to 100kb and with same resolution
 
-DAY-13(7-8-26) Part 4 : User feature 

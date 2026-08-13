@@ -1,0 +1,61 @@
+1. Fork their repo
+        ↓
+2. Clone YOUR fork
+        ↓
+3. Open in VS Code
+        ↓
+4. git checkout -b feature/my-change
+        ↓
+5. Write code
+        ↓
+6. git status
+        ↓
+7. git add <files>
+        ↓
+8. git commit -m "what I did"
+        ↓
+9. git push origin feature/my-change
+        ↓
+10. GitHub → Compare & pull request
+        ↓
+11. Check: YOUR FORK → ORIGINAL REPO
+        ↓
+12. Create Pull Request
+        ↓
+13. Owner reviews + merges
+
+------------------------------------------------------------
+DAY-13(7-8-26) Part 4 : User feature
+
+we are starting with Route for post with get method
+means we are making a new api with GET method
+
+so what we are going to do in this : 
+
+lets suppose we have 3 user 
+
+user A ----------> 
+               (GET /api/posts)
+user B ----------> server
+               (server need to send the post to that user only who req)
+user C ---------->
+(request to server to get there post)
+
+And server will find the post in Database then send to that user
+
+(a). POST /api/posts
+       Gets JWT from cookies.
+       Verifies the JWT.
+       Gets the uploaded image from req.file.
+       Uploads the image to ImageKit.
+       Creates a MongoDB post with:
+         caption
+         img_url
+         userId
+       Returns the created post.
+
+(b). GET /api/posts
+       Gets JWT from cookies.
+       Verifies the JWT.
+       Finds posts belonging to that user.
+       Returns those posts.
