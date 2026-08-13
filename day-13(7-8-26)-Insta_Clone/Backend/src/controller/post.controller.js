@@ -103,7 +103,7 @@ async function getPostDetailsController(req, res) {
   const postId = req.params.postId;
 
   // now we can get the sepecific post
-  const post = await postModel.findById({ postId });
+  const post = await postModel.findById( postId );
   // if we dont find that post
   if (!post) {
     return res.status(404).json({
@@ -113,7 +113,7 @@ async function getPostDetailsController(req, res) {
 
   // now we have to check if user is asking for his own post
   // so we compare the userId with postId
-  const idValidUser = post.user === userId;
+  const idValidUser = post.userId.toString() === userId;  // we conver ojid to string
 
   if (!idValidUser) {
     // Forbidder

@@ -567,6 +567,45 @@ The user sends the JWT, the server verifies it, gets the user's ID from the toke
 
 I also learned why applications don't always send the original full-size image to users. Large images consume more bandwidth, so images can be converted and compressed while keeping a similar resolution and visual quality
 
+--- 
+
+# Day 13 - Instagram Clone (Part 4)
+
+Today I continued working on the **Post feature** and started fetching posts for authenticated users.
+
+## What I Did
+
+- Created a `GET /api/posts` route.
+- Used the JWT stored in cookies to identify the logged-in user.
+- Verified the JWT before accessing posts.
+- Fetched posts belonging to the authenticated user from MongoDB.
+- Started creating an API to fetch a specific post.
+- Added authorization checks to make sure users can only access posts they are allowed to access.
+- Moved post-related logic into a separate **Controller** instead of keeping everything inside the route file.
+
+## What I Learned
+
+- **Authentication** tells the server **who the user is**.
+- **Authorization** tells the server **what that user is allowed to access**.
+- `401 Unauthorized` → Token is missing or invalid.
+- `403 Forbidden` → User is authenticated but doesn't have permission.
+- `404 Not Found` → Requested post doesn't exist.
+- MongoDB `ObjectId` needs to be converted to a string when comparing it with a normal string ID.
+
+## Key Takeaway
+
+The important thing I understood today is that authentication and authorization are two different things.
+
+The JWT identifies the user, and then the server can use that identity to decide which data the user is allowed to access.
+
+As the project grows, I'm also learning why separating the code into:
+
+**Routes → Controllers → Database**
+
+makes the backend easier to organize and maintain.
+
+---
+
 ## 🎯 Goal
 
 Document my backend learning journey step by step while building a strong foundation in Node.js, Express.js, MongoDB, REST APIs, Authentication, and Deployment.

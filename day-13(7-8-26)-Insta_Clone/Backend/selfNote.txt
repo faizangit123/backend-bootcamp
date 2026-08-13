@@ -59,3 +59,8 @@ And server will find the post in Database then send to that user
        Verifies the JWT.
        Finds posts belonging to that user.
        Returns those posts.
+
+// now we have to check if user is asking for his own post
+  // so we compare the userId with postId
+  const idValidUser = post.user.toString() === userId;  // we conver ojid to string
+without toString it will send forbidden request
