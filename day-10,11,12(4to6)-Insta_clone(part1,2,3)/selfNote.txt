@@ -36,8 +36,8 @@ user{
         unique:true
     }
     password:String,
-  //  followers:Array,
-  //  following:Array,
+    followers:Array,
+    following:Array,
     profilePic:String,
 }
 
@@ -70,7 +70,7 @@ now for today is insta post : (we will do logout letter)
 }
 NOTE: we will do like and comment in part 3
 
-and to create a api we create in routes like post.routers.js
+and to create an api we create in routes like post.routers.js
 
 now postRouter.post('/', postController.createPostController); showing undefine as its not raw, its form data now where we send caption and image url and express dont read it by default and as express also dont read raw too, for that we use middleware -> app.use(express.json()) 
 for now we need to i "MULTER": as express dont read file by default, by "MULTER" it has power now, as want to send data in form data

@@ -1,0 +1,42 @@
+User sends username/email + password
+            ↓
+       Find user
+            ↓
+     User exists?
+       ↓       ↓
+      No       Yes
+      ↓         ↓
+    404     bcrypt.compare()
+                ↓
+          Password correct?
+            ↓       ↓
+           No       Yes
+           ↓         ↓
+          401    Create JWT
+                     ↓
+                Set cookie
+                     ↓
+                 200 OK
+
+
+POST -> /api/posts -> createPostController 
+Flow : 
+Client
+  ↓
+caption + image
+  ↓
+Express server
+  ↓
+Get JWT from cookie
+  ↓
+Verify JWT
+  ↓
+Get user ID from JWT
+  ↓
+Upload image to ImageKit
+  ↓
+Get ImageKit URL
+  ↓
+Create MongoDB post
+  ↓
+Return post                 

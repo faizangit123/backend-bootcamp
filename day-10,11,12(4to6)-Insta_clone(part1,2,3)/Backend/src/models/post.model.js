@@ -7,13 +7,13 @@ const postSchema = new mongoose.Schema({
   },
   img_url: {
     type: String,
-    require: [true, "Image is needed to creating an post"],
+    required: [true, "Image is needed to creating an post"],
   },
   userId: {
     ref: "users",
     type: mongoose.Schema.Types.ObjectId,
-    require: [true, "user id is required for creating an post"],
-  }
+    required: [true, "user id is required for creating an post"],
+  },
 });
 // 2rd collection
 const postModel = mongoose.model("posts", postSchema); //its going to be post collection, so post data will store

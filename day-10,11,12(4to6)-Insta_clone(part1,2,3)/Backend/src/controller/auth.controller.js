@@ -9,6 +9,7 @@ const jwt = require("jsonwebtoken");
 
 // Register logic
 async function registerController(req, res) {
+  // Local variable
   const { username, bio, email, password, profilePic } = req.body;
   // if user exist with same email & username
   // server will query on the bases of email to db then db give the result
@@ -44,6 +45,7 @@ async function registerController(req, res) {
   const hash = await bcrypt.hash(password, 10); // 10 is salt like how many time you want to do hashing
 
   // time to create user
+  // Create a response property called username using the username value from the user object that was returned by userModel.create()
   const user = await userModel.create({
     username,
     email,
@@ -65,7 +67,9 @@ async function registerController(req, res) {
   res.cookie("jwt_token", token);
   res.status(200).json({
     message: "User registration successful.",
+   // So user.username comes from the created database document.
     user: {
+      // username,
       username: user.username,
       email: user.email,
       bio: user.bio,
@@ -76,7 +80,7 @@ async function registerController(req, res) {
 
 // login logic
 async function loginController(req, res) {
-  console.log(req.body)
+  console.log(req.body);
   const { username, email, password } = req.body;
   // feature that we can login with either : we can do this with $or operator
   /**
@@ -103,10 +107,10 @@ async function loginController(req, res) {
   // const hash = crypto.createHash("sha256").update(password).digest("hex");
   // // now check if the pass is valid
   // const isPasswordValid = hash === user.password;
-  
-  // now both line is done by hashing 
-  const isPasswordValid = await bcrypt.compare(password,user.password);
-  
+
+  // now both line is done by hashing
+  const isPasswordValid = await bcrypt.compare(password, user.password);
+
   if (!isPasswordValid) {
     return res.status(401).json({
       message: "Password is incorret.",
