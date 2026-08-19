@@ -13,10 +13,10 @@ postRouter.post(
   postController.createPostController,
 );
 
-// GET -> /api/posts -> all user posts
+//GET-> /api/posts -> all user posts
 postRouter.get("/", postController.getPostController);
 
-// GET -> /api/posts -> get spesific post so need id
+//GET-> /api/posts -> get spesific post so need postId and user ask for his own post: userID
 postRouter.get("/details/:postId", postController.getPostDetailsController);
 
 module.exports = postRouter;

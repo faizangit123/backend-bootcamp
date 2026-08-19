@@ -73,12 +73,48 @@ async function getPostController(req, res) {
 
   res.status(200).json({
     message: "Post fetched successfully.",
-    post
+    post,
   });
 }
 
-async function getPostDetailsController(req,res) {
-  
+// GET -> Get user own specific post
+async function getPostDetailsController(req, res) {
+  const token = req.cookies.JWT_TOKEN;
+  if (!token) {
+    return res.status(401).json({
+      message: "Unauthorized user.",
+    });
+  }
+  let decoder;
+  try {
+    decoder = jwt.verify(token, process.env.JWT_SECRET);
+  } catch (error) {
+    return res.status(401).json({
+      message: "Invalid token or token expires.",
+    });
+  }
+
+  const userId = decoder.id;
+  const postId = req.params.postId;
+
+  const post = await postModel.findById( postId );
+  if (!post) {
+    return res.status(404).json({
+      message: "Post not found.",
+    });
+  }
+  // verify if user is asking for his own post
+  const isValidUser = post.userId.toString() === userId;
+  if (!isValidUser) {
+    return res.status(403).json({
+      message: "Forbbiden content",
+    });
+  }
+
+  res.status(200).json({
+    message: "Post fetched successfully.",
+    post
+  });
 }
 
 module.exports = {
