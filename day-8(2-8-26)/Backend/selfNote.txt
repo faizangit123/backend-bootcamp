@@ -19,7 +19,8 @@ user--------------------------- login ---------------------------> server
 
   one more thing i need to lear as if go further i dont only need token, "user agent"
 
-  what do you know about data breach or data leak? like all the data is leak from your db and that data is now in someone else hand, now its in the internet and The solution this problem we use "Hashing algo.." -> (322Njfo32nfj..) convert words into a well calculated sting, which is bcrypt, we can get from "md5 hash generator".
+  what do you know about data breach or data leak? 
+  like all the data is leak from your db and that data is now in someone else hand, now its in the internet and The solution this problem we use "Hashing algo.." -> (322Njfo32nfj..) convert words into a well calculated string, which is bcrypt, we can get it from "md5 hash generator".
   Now some of the properties of "Hashing" is:
   (1) when you give same name again it will generate the same hashing string.
   (2) Hash can not be converted into plain text (its ONE WAY), if we do that if will give new hash sting.

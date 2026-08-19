@@ -6,11 +6,7 @@ const upload = multer({ storage: multer.memoryStorage() });
 
 // POST /api/posts   [protected]
 // req.body = {caption, image-file}
-postRouter.post(
-  "/",
-  upload.single("image"),
-  postController.createPostController,
-);
+postRouter.post("/",upload.single("image"),postController.createPostController);
 
 // GET /api/posts (7-8-26) [protected]
 postRouter.get("/", postController.getPostController);

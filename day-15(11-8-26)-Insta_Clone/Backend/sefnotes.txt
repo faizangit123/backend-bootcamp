@@ -18,7 +18,7 @@ User sends username/email + password
                      ↓
                  200 OK
 
-
+-----------------------------------------
 POST -> /api/posts -> createPostController 
 Flow : 
 Client
@@ -39,4 +39,33 @@ Get ImageKit URL
   ↓
 Create MongoDB post
   ↓
-Return post                 
+Return post
+---------------------------------
+GET -> all posts
+Logic flow:
+GET /api/posts
+      ↓
+Check JWT cookie
+      ↓
+Verify JWT
+      ↓
+Get user ID from token
+      ↓
+Find posts belonging to that user
+      ↓
+Return posts
+-----------------------------------
+
+(userId: decoder.id)
+Logged-in user → decoder.id = 123
+Database:
+post A → userId: 123
+post B → userId: 456
+post C → userId: 123
+
+response : post A and post C
+
+
+Daily Attendance : 
+
+i think data is not storing in local storage, like if i make some changes by add or modify, it will show in entry also as in serach after refreshing it first and when i come back to entry it will still there, i have try to refresh the whole page its still there, i have notice that after some time every thing reset automatically, cause its gone

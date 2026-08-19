@@ -54,7 +54,7 @@ And server will find the post in Database then send to that user
          userId
        Returns the created post.
 
-(b). GET /api/posts
+(b). GET /api/posts  -> all posts
        Gets JWT from cookies.
        Verifies the JWT.
        Finds posts belonging to that user.
