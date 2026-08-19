@@ -1,18 +1,18 @@
-DAY-15 : 
+DAY-15 :
 User Auth ROUTER flow:
-
+Login flow:
 User sends username/email + password
             ↓
        Find user
             ↓
      User exists?
-       ↓       ↓
+      ↓         ↓
       No       Yes
       ↓         ↓
-    404     bcrypt.compare()
+     404     bcrypt.compare()
                 ↓
           Password correct?
-            ↓       ↓
+           ↓         ↓ 
            No       Yes
            ↓         ↓
           401    Create JWT
@@ -20,6 +20,26 @@ User sends username/email + password
                 Set cookie
                      ↓
                  200 OK
+
+Protected Route: 
+
+          User logs in
+              ↓
+          Server creates JWT
+              ↓
+          JWT stored in cookie
+              ↓
+          User requests protected API
+              ↓
+          Server reads JWT from cookie
+              ↓
+          jwt.verify(token, JWT_SECRET)
+              ↓
+          Valid?
+           ┌──┴──┐
+          Yes    No
+           ↓      ↓
+    Access API   401
 
 ------------------------------------------
 FOR USER POST ROUTER: 
@@ -29,7 +49,7 @@ FOR USER POST ROUTER:
       Client
         ↓
       caption + image
-  ↓      
+        ↓      
       Express server
         ↓
       Get JWT from cookie
@@ -102,6 +122,39 @@ Successfully fetched	200	✅
 
 ------------------------------------------------
 
-Daily Attendance : 
+NOTE FOR ME :
+What i have now :
+                 JWT_TOKEN
+                    ↓
+                 One JWT
+                    ↓
+                 Used for authentication
 
-i think data is not storing in local storage, like if i make some changes by add or modify, it will show in entry also as in serach after refreshing it first and when i come back to entry it will still there, i have try to refresh the whole page its still there, i have notice that after some time every thing reset automatically, cause its gone
+And what access and refresh token is : 
+normally have two tokens:
+const accessToken = jwt.sign(
+  { id: user._id },
+  process.env.ACCESS_TOKEN_SECRET,
+  { expiresIn: "15m" }
+);
+
+const refreshToken = jwt.sign(
+  { id: user._id },
+  process.env.REFRESH_TOKEN_SECRET,
+  { expiresIn: "7d" }
+);
+             (a)Access Token                                
+                   ↓
+                Short lifetime
+                   ↓
+                Used to access protected APIs
+                   ↓
+                Example: 15 minutes
+
+             (b)Refresh Token
+                   ↓
+                Long lifetime
+                   ↓
+                Used to get a new access token
+                   ↓
+                Example: 7 days              

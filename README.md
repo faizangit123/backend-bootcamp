@@ -606,6 +606,106 @@ makes the backend easier to organize and maintain.
 
 ---
 
+# Day 14 - Backend Practice & Notes
+
+Today I focused more on **rewriting and understanding the basics instead of just moving forward**.
+
+I rewrote the Notes CRUD APIs again for practice:
+
+- `POST /api/notes` → Create a note
+- `GET /api/notes` → Get all notes
+- `PATCH /api/notes/:id` → Update a note
+- `DELETE /api/notes/:id` → Delete a note
+
+I also created the **Notes model** and practiced configuring the backend with **MongoDB**.
+
+### What I Revised
+
+#### Node.js & Backend Basics
+
+I revised how Node.js allows us to run JavaScript outside the browser and how it can be used to:
+
+- Create servers
+- Work with databases
+- Run backend logic
+- Build APIs
+
+#### Authentication System
+
+I revised the basic tools used in an authentication system:
+
+- **Express** → Server
+- **cookie-parser** → Read cookies from requests
+- **jsonwebtoken (JWT)** → User identity/authentication
+- **bcryptjs** → Password security
+- **dotenv** → Store secrets such as `MONGO_URI` and `JWT_SECRET`
+
+#### Error Handling
+
+I also made notes about why proper error handling is important in Express.
+
+Errors can happen because of:
+
+- Invalid user input
+- Database failures
+- Missing resources
+- Authentication failures
+- Unexpected server errors
+
+Good error handling helps prevent crashes, keeps API responses consistent, and makes debugging easier.
+
+### What I'm Trying to Build
+
+I'm still following the same approach I've been using throughout this learning journey:
+
+**Rewrite → Break things → Understand the error → Fix it → Rewrite again**
+
+I'm finding that rewriting the same backend concepts from scratch is helping me understand what the code is actually doing instead of only remembering the syntax.
+
+---
+
+# Day 15 - Authentication & Post API Flow
+
+I focused on understanding how **authentication connects with user-specific APIs** in my Instagram Clone.
+
+I went through the login flow again:
+
+**Login → Find User → `bcrypt.compare()` → Create JWT → Store JWT in Cookie**
+
+Then, for protected routes:
+
+**Cookie → JWT → `jwt.verify()` → Get User ID → Allow/Deny Request**
+
+I connected this with the Post API. When a user creates a post, the server gets the JWT from the cookie, verifies it, gets the user's ID, uploads the image to ImageKit, and saves the post in MongoDB with that user's ID.
+
+For fetching posts, the server uses the authenticated user's ID to return only that user's posts.
+
+I also worked on fetching a specific post and checking whether it actually belongs to the logged-in user.
+
+### Status Codes I Practiced
+
+- `401` → No JWT / invalid or expired JWT
+- `403` → User is authenticated but not allowed to access the resource
+- `404` → Post doesn't exist
+- `200` → Request successful
+
+### New Concept
+
+I also started learning about **Access Tokens and Refresh Tokens**.
+
+Until now, I've mainly been using one JWT for authentication. I learned that applications commonly use:
+
+- **Access Token** → Short-lived, used for protected APIs
+- **Refresh Token** → Longer-lived, used to get a new access token
+
+### Main Takeaway
+
+I'm trying to understand the **flow behind the code**, not just remember the syntax.
+
+**Login → JWT → Cookie → Verify → Identify User → Authorization → Access Data**
+
+---
+
 ## 🎯 Goal
 
 Document my backend learning journey step by step while building a strong foundation in Node.js, Express.js, MongoDB, REST APIs, Authentication, and Deployment.

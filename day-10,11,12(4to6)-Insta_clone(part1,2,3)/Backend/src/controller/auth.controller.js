@@ -3,7 +3,7 @@
  * we dont write logic in auth.routers, only in controller, as many other code will come
  */
 const userModel = require("../models/user.model");
-// const crypto = require("crypto"); // for basic use, low lever package for security
+// const crypto = require("crypto"); // for basic use, low lever package for security and lower-level hashing API.
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
