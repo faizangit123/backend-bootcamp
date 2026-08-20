@@ -158,3 +158,53 @@ const refreshToken = jwt.sign(
                 Used to get a new access token
                    ↓
                 Example: 7 days              
+
+------------------------------------------------------------------
+DAY-15(20-8-26):
+
+const app = express(); (1) Instance our entery point: all the req come through this
+(2) App then send that req on the bases of router like auth, posts
+
+we have only two router as of now but a normal backend contain like 10 to 15 router
+like admin, product, log, error, analysis, downtime, and more
+
+And this two api we have is 1st api is auth with 2 router and 2 controller:
+(1) /registe and /login & registerController and loginController
+
+(2) /api/auth : (i) POST "/" (ii) GET "/" (iii) GET "/details/:postId"
+and 
+createPostController    getPostController    getPostDetailsController
+
+all this 3 post controller are doing one same thing asking token to verify the user
+but a good coder will not do that (identifying the user)
+
+for that we are going make one new folder Name "middlewares" and in it "auth.middleware.js"
+
+
+ identifyUser() have one work to do : its work like it will take token from the req and by reading the data it can tell which user requested the post.(is () ka kam identify karna which user request the post)
+ and we are going to use this () in the middle of POST /api/posts and createPostController
+
+     POST /api/posts
+         |
+         |
+         |
+     identifyUser()  , now we are going to use it in middle, so we 1st send the req to this (), then to creat...
+         |
+         |
+         |
+     createPostController        
+
+user (requset) ----send to ---- > app.js ---> send to ---> any route(lets say post) ---> postRouter ---> then the request will to the api which he requested ---> POST /api/posts --- req 1st go to ---> identifyUser function then ------> then go to createPostController() 
+
+same for all other post apis 
+
+Now, when request in the identifyUser() main hogi then we can add new PROPERTY : 
+"req.user"; and it can be anything no need to write .user, you can write req.armanthegreate, 
+but req.user -> make more sense
+
+so why we are writing it? because we just check the token then verify the user,
+now we need to store the user info like the info in decoder so we use req.user = decoder;
+like whatever user data we get we then set it in the PROPERTY we just created called "req.user"
+and in the end we use our new parameter Called "next()" -> we use when we want to forward our request
+
+so now instead of using decoder we are going to use req.user(as they both contain use data)
