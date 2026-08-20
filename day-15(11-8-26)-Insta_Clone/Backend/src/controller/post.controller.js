@@ -21,7 +21,7 @@ async function createPostController(req, res) {
   const post = await postModel.create({
     caption,
     img_url: file.url,
-    userId: decoder.id,
+    userId: req.user.id,
   });
 
   res.status(201).json({
@@ -36,24 +36,9 @@ async function createPostController(req, res) {
 
 // GET -> All posts
 async function getPostController(req, res) {
-  const token = req.cookies.JWT_TOKEN;
-  if (!token) {
-    return res.status(401).json({
-      message: "Unauthorized user.",
-    });
-  }
-
-  let decoder;
-  try {
-    decoder = jwt.verify(token, process.env.JWT_SECRET);
-  } catch (error) {
-    return res.status(401).json({
-      message: "Invalid usesr or token is expires.",
-    });
-  }
-
+  
   const post = await postModel.find({
-    userId: decoder.id,
+    userId: req.user.id,
   });
 
   res.status(200).json({
@@ -64,22 +49,8 @@ async function getPostController(req, res) {
 
 // GET -> Get user own specific post
 async function getPostDetailsController(req, res) {
-  const token = req.cookies.JWT_TOKEN;
-  if (!token) {
-    return res.status(401).json({
-      message: "Unauthorized user.",
-    });
-  }
-  let decoder;
-  try {
-    decoder = jwt.verify(token, process.env.JWT_SECRET);
-  } catch (error) {
-    return res.status(401).json({
-      message: "Invalid token or token expires.",
-    });
-  }
 
-  const userId = decoder.id;
+  const userId = req.user.id;
   const postId = req.params.postId;
 
   const post = await postModel.findById( postId );
